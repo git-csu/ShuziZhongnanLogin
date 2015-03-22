@@ -1,4 +1,4 @@
-package tion;
+package tion.com;
 
 import java.awt.AWTException;
 import java.awt.Color;
