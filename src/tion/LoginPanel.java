@@ -19,10 +19,13 @@ public class LoginPanel extends JPanel {
 	private static final long serialVersionUID = -3456170773198057720L;
 
 	JButton loginButton;
+	
 	JLabel accountLabel;
 	JLabel passwordLabel;
+	
 	JLabel loginTip;
 	JLabel loginRemtip;
+	
 	JCheckBox loginRem;// 提供记住密码功能
 	JTextField loginAccount;
 	JPasswordField loginPass;
@@ -38,28 +41,30 @@ public class LoginPanel extends JPanel {
 
 		this.LoginSuccess = false;
 		this.setLayout(null);
+		
+ 		this.setBackground(Color.WHITE);
 
-		this.accountLabel = new JLabel("账      号：");
-		this.accountLabel.setBounds(30, 110, 100, 20);
-
-		this.passwordLabel = new JLabel("密      码：");
-		this.passwordLabel.setBounds(30, 140, 100, 20);
-
-		this.loginTip = new JLabel("");
-		this.loginTip.setForeground(Color.RED);
-		this.loginTip.setBounds(130, 175, 100, 20);
-
-		this.loginRemtip = new JLabel("记住密码");
-		this.loginRemtip.setBounds(30, 175, 60, 20);
-
+		this.accountLabel = new JLabel("    账  号:");
+		this.accountLabel.setBounds(35,  97, 100, 25);
+		
 		this.loginAccount = new JTextField();
-		this.loginAccount.setBounds(120, 110, 100, 20);
+		this.loginAccount.setBounds(110, 100, 100, 20);
 
+		this.passwordLabel = new JLabel("    密  码:");
+		this.passwordLabel.setBounds(35, 127, 100, 25);
 		this.loginPass = new JPasswordField();
-		this.loginPass.setBounds(120, 140, 100, 20);
+		this.loginPass.setBounds(110, 130, 100, 20);
 
-		this.loginRem = new JCheckBox("记住密码", jizhumimaOrNot);
-		this.loginRem.setBounds(90, 175, 20, 20);
+		this.loginTip = new JLabel();
+		this.loginTip.setForeground(Color.RED);
+		this.loginTip.setBounds(90, 188, 100, 25);
+
+		this.loginRemtip = new JLabel("记 住 密 码");
+		this.loginRemtip.setBounds(80, 160, 70, 30);
+
+		this.loginRem = new JCheckBox();
+		this.loginRem.setBackground(Color.WHITE);
+		this.loginRem.setBounds(145, 160, 20, 30);
 
 		LoadConfig();
 
@@ -135,8 +140,7 @@ public class LoginPanel extends JPanel {
 						new FileInputStream("config"));
 				temp = (String[]) ois.readObject();
 				ois.close();
-//				for (int i = 0; i < temp.length; i++)
-//					System.out.println(temp[i]);
+
 				if (temp[0].equals("true")) {
 					jizhumimaOrNot = true;
 					loginRem.setSelected(true);

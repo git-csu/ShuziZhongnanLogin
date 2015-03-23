@@ -1,6 +1,9 @@
 package tion;
 
+import java.awt.Color;
+
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -22,6 +25,8 @@ public class ShowPanel extends JPanel {
 
 	JLabel left_money;
 	JLabel left_money_num;
+	
+	JLabel logout_tip;
 
 	//在这里设置登出按钮
 	JButton logout;
@@ -29,6 +34,7 @@ public class ShowPanel extends JPanel {
 	ShowPanel() {
 
 		this.setLayout(null);
+		this.setBackground(Color.WHITE);
 
 		this.sum_liu = new JLabel("本月总流量:");
 		this.sum_liu.setBounds(40, 40, 90, 30);
@@ -52,6 +58,9 @@ public class ShowPanel extends JPanel {
 
 		this.logout = new JButton("登出");
 		this.logout.setBounds(74, 210, 90, 30);
+		this.logout_tip = new JLabel();
+		this.logout_tip.setForeground(Color.RED);
+		this.logout_tip.setBounds(90, 240, 90, 30);
 
 		this.add(left_liu);
 		this.add(left_liu_num);
@@ -62,5 +71,12 @@ public class ShowPanel extends JPanel {
 		this.add(used_liu);
 		this.add(used_liu_num);
 		this.add(logout);
+		this.add(logout_tip);
+	}
+	public static void main(String[] args) {
+		JFrame jf = new JFrame();
+		jf.add(new ShowPanel());
+		jf.setVisible(true);
+		
 	}
 }
